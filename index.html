@@ -12,11 +12,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      /* NUEVO: Color de fondo verde profundo */
-      background-color: #283a17;
+      background-color: #283a17; /* Fondo verde profundo */
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      /* NUEVO: Color de letras crema */
-      color: #e9e9e9;
+      color: #e9e9e9; /* Letras crema */
       -webkit-font-smoothing: antialiased;
     }
     .branding {
@@ -28,7 +26,6 @@
       font-size: 32px;
       font-weight: 700;
       letter-spacing: 6px;
-      /* Mantenemos CASACOR en mayúsculas por branding */
       text-transform: uppercase; 
       margin-bottom: 12px;
     }
@@ -36,29 +33,23 @@
       font-size: 18px;
       font-weight: 300;
       letter-spacing: 1px;
-      /* NUEVO: Sin transformación a mayúsculas (alta y baja) */
-      text-transform: none; 
       margin-bottom: 6px;
     }
     .location {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       letter-spacing: 3px;
-      text-transform: uppercase;
       margin-bottom: 20px;
-      /* Un tono un poco más suave de crema para Bolivia */
-      color: #cbd5c2; 
+      color: #cbd5c2; /* Bolivia en línea aparte y tono suave */
     }
     .dates {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       letter-spacing: 1px;
-      /* NUEVO: Fechas en alta y baja */
-      text-transform: none; 
       opacity: 0.9;
     }
 
-    /* Loader de puntos minimalista */
+    /* Loader de puntos con tus colores específicos */
     .loader {
       display: flex;
       gap: 10px;
@@ -69,9 +60,8 @@
       border-radius: 50%;
       animation: pulse 1.4s infinite ease-in-out;
     }
-    /* NUEVO: Configuración de colores de los puntos */
     .dot:nth-child(1) { background-color: #e9e9e9; } /* Crema */
-    .dot:nth-child(2) { background-color: #364f20; animation-delay: 0.2s; } /* Verde Olivo */
+    .dot:nth-child(2) { background-color: #364f20; animation-delay: 0.2s; } /* Verde olivo */
     .dot:nth-child(3) { background-color: #e9e9e9; animation-delay: 0.4s; } /* Crema */
 
     @keyframes pulse {
@@ -96,9 +86,8 @@
   </div>
 
   <script>
-    // ESTA ES LA CONEXIÓN CON TU GOOGLE SHEETS
-    // Recuerda pegar aquí tu URL de Apps Script
-    const WEB_APP_URL = "URL_DE_TU_APPS_SCRIPT";
+    // Conexión directa con tu Google Apps Script
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPN6E43Bqgm2qhgWPDI0DtMFT4e5MTLq1IZAT-E-6eyPg9mkZ2Bm5LJPZgUTPv4WMS/exec";
 
     const urlParams = new URLSearchParams(window.location.search);
     const k = urlParams.get('k');
