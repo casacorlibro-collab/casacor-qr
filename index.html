@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASACOR Bolivia</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #FAFAFA;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+    }
+    .branding {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #666;
+      text-transform: uppercase;
+    }
+    .dates {
+      font-size: 10px;
+      font-weight: 600;
+      color: #8b2d2d; /* Rojo elegante */
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+    /* Loader de puntos minimalista */
+    .loader {
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 50%;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { background-color: #8b2d2d; animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1.2); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="branding">
+    <div class="title">CASACOR</div>
+    <div class="subtitle">Mente y Corazón • Bolivia</div>
+    <div class="dates">13 DE MAYO AL 20 DE JUNIO</div>
+  </div>
+
+  <div class="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    // ESTA ES LA CONEXIÓN CON TU GOOGLE SHEETS
+    // Reemplaza el texto entre comillas con tu URL de Apps Script cuando la tengas
+    const WEB_APP_URL = "URL_DE_TU_APPS_SCRIPT";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const k = urlParams.get('k');
+
+    if (k) {
+      fetch(`${WEB_APP_URL}?k=${encodeURIComponent(k)}`)
+        .then(response => response.text())
+        .then(targetUrl => {
+          if (targetUrl && targetUrl.startsWith('http')) {
+            window.location.replace(targetUrl);
+          }
+        })
+        .catch(err => console.error("Error de redirección:", err));
+    }
+  </script>
+</body>
+</html>
